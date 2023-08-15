@@ -49,10 +49,12 @@ h4 {
     margin-bottom: 70px;
 }
 
+
 .post h2 a,
 .post h2 a:visited {
     color: #000000;
 }
+
 
 .post > .date,
 .post > .actions {
@@ -70,3 +72,9 @@ h4 {
     color: #FFFFFF;
     background-color: #C25100;
 }
+.bi bi-car-front-fill{
+    margin-top: 50%;
+    padding-left: 50%;
+    color: aqua;
+}
+
