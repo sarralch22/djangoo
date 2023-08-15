@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,18 +10,18 @@
     </head>
     <body>
     <header class="page-header">
-    <div class="container">
-                <a href="{% url 'post_new' %}" class="top-menu"  >
-                    {% include './icons/square.png' %}
-                </a>
-                <h1><a href="/">  Django Girls Blog </a></h1>
-            </div>
+        <div class="container">
+            <a href="{% url 'post_new' %}" class="top-menu">
+                <img src="{% static 'file-earmark-plus.svg' %}" alt="Plus Icon">
+            </a>
+            <h1><a href="/"> Django Girls Blog </a></h1>
+        </div>
     </header>
     <main class="container">
         <div class="row">
             <div class="col">
-            {% block content %}
-            {% endblock %}
+                {% block content %}
+                {% endblock %}
             </div>
         </div>
     </main>
