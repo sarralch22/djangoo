@@ -1,0 +1,112 @@
+{% load static %}
+<!-- Main header start -->
+<!-- Log on to codeastro.com for more projects -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="position: absolute;top: 0;  left: 0; right: 0;
+z-index: 1000;"  >
+    <div class="container-fluid">
+      <div>
+        <ul class="top-social-media pull-right">
+
+          {% if user.is_authenticated %}
+          <li>
+              <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-xs" style="position: absolute;right: 50px;top:23px;"><i class="fa fa-tachometer"  style="position: absolute;right: 107px;top:8px;"></i> Dashboard</a>
+          </li>
+
+          <li>
+              <a href="javascript:{document.getElementById('logout').submit()}" class="btn btn-danger btn-xs"  style="position: absolute;right: 62px;bottom: 20px;"><i class="fa fa-sign-out"  style="position: absolute;right: 80px;top:8px;"></i> Logout</a>
+              <form action="{% url 'logout' %}" id="logout" method="POST">
+                {% csrf_token %}
+                <input type="hidden">
+              </form>
+          </li>
+          {% else %}
+            <li>
+                <a href="{% url 'login' %}" class="btn btn-secondary btn-xs"  style="position: absolute;right: 64px;top: 15px; background-color: rgb(1, 78, 1);"><i class="fa fa-sign-in" style="position: absolute;right: 65px;bottom: 10px;"></i> Login</a>
+            </li>
+            <li>
+                <a href="{% url 'register' %}" class="btn btn-secondary btn-xs" style="position: absolute;right: 50px;bottom: 20px; "><i class="fa fa-user-plus" style="position: absolute;right: 90px;bottom: 10px;"></i> Register</a>
+            </li>
+          {% endif %}
+        </ul>
+<!-- Log on to codeastro.com for more projects -->
+    </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav style="background-color: rgb(0, 0, 0); height: 50%; width: 2200px;">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#"><img src="{% static 'img/logos/cardealerLogo-White.png' %}" alt="logo" style="width: 100px; min-content;" ></a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+        
+            <a
+                          {% if '/' == request.path %}
+                          class="nav-link active"
+                          {% else %}
+                          class="nav-link"
+                          {% endif %}
+                         href="{% url 'home' %}"
+                         style="color: white; font-family: ' Helvetica';">
+                          home
+                        </a>
+            
+          </li>
+          <li class="nav-item">
+            <a
+            {% if 'cars' in request.path %}
+            class="nav-link active"
+            {% else %}
+            class="nav-link"
+            {% endif %}
+             href="{% url 'cars' %}"
+             style="color: white; font-family: ' Helvetica';">
+                Cars
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+                        {% if 'services' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}
+                         href="{% url 'services' %}"
+                         style="color: white; font-family: ' Helvetica';">
+                            Our Services
+                        </a>
+          </li>
+          <li class="nav-item">
+            <a
+            {% if 'about' in request.path %}
+            class="nav-link active"
+            {% else %}
+            class="nav-link"
+            {% endif %}
+             href="{% url 'about' %}"
+             style="color: white; font-family: ' Helvetica';">
+                About
+            </a>
+            <li class="nav-item">
+                <a
+                        {% if 'contact' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}
+                         href="{% url 'contact' %}"
+                         style="color: white; font-family: ' Helvetica';">
+                         Contact Us</a>
+              </li>
+          </li>
+         <li class="nav-item dropdown m-hide">
+            <a href="#full-page-search" class="nav-link h-icon">
+                <i class="fa fa-search" style="color: white;"></i>
+            </a>
+            <!-- Log on to codeastro.com for more projects -->
+        </li>
+        </ul>
+       
+      </div>
+    </div>
+
+  </nav>
